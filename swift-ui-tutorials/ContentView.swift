@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var spotifyController: SpotifyController
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button {
+                if (spotifyController.isConnected) {
+                    spotifyController.appRemote.disconnect()
+                }
+                else {
+                    spotifyController.connect()
+                }
+            } label: {
+                Text(spotifyController.isConnected ? "Disconnect":"Connect")
+            }
         }
         .padding()
     }
