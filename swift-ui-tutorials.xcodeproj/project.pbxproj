@@ -45,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		06171A7929DA8815009974CE /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		06171A7B29DB7019009974CE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		06B280A729D0042C00FD5D83 /* swift-ui-tutorials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-ui-tutorials.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B280AA29D0042C00FD5D83 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		06B280AC29D0042C00FD5D83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 				06B280AE29D0042C00FD5D83 /* Assets.xcassets */,
 				06B280B029D0042C00FD5D83 /* Preview Content */,
 				06B280CA29D13F7100FD5D83 /* RootView.swift */,
+				06171A7B29DB7019009974CE /* Config.xcconfig */,
 			);
 			path = "swift-ui-tutorials";
 			sourceTree = "<group>";
@@ -264,6 +266,7 @@
 /* Begin XCBuildConfiguration section */
 		06B280B329D0042C00FD5D83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06171A7B29DB7019009974CE /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -324,6 +327,7 @@
 		};
 		06B280B429D0042C00FD5D83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06171A7B29DB7019009974CE /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

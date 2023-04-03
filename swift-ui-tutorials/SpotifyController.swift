@@ -16,9 +16,15 @@ class SpotifyController: NSObject, ObservableObject {
     @Published var sptSession: SPTSession? = nil
     @Published var playerState: SPTAppRemotePlayerState?
     @Published var albumArtImageView: UIImage?
-
-
-    let spotifyClientID = "239c098629894eeba35e71c917646d1d"
+    
+    private static let clientId: String = {
+        if let clientId = Bundle.main.infoDictionary?["CLIENT_ID"] as? String {
+            return clientId
+        }
+        
+        fatalError("Could not find 'CLIENT_ID' in environment variables")
+    }()
+    
     let spotifyRedirectURL = URL(string:"swift-tutorial://")!
 
     var accessToken: String? = nil
@@ -45,14 +51,8 @@ class SpotifyController: NSObject, ObservableObject {
 
     }
 
-//    lazy var configuration = SPTConfiguration(
-//        clientID: spotifyClientID,
-//        redirectURL: spotifyRedirectURL
-//
-//    )
-//
     lazy var configuration: SPTConfiguration = {
-        let configuration = SPTConfiguration(clientID: spotifyClientID, redirectURL: spotifyRedirectURL)
+        let configuration = SPTConfiguration(clientID: SpotifyController.clientId, redirectURL: spotifyRedirectURL)
         // Set the playURI to a non-nil value so that Spotify plays music after authenticating
         // otherwise another app switch will be required
         configuration.playURI = ""

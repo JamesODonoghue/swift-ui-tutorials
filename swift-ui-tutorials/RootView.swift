@@ -191,18 +191,17 @@ struct RootView_Previews: PreviewProvider {
         return spotify
     }()
     
-//    static let sdkContoller: SpotifyController = {
-//        let controller = SpotifyController()
-//        controller.playerState =
-//        return spotify
-//    }()
+    static let sdkController: SpotifyController = {
+        let controller = SpotifyController()
+        return controller
+    }()
     
 
     
     static var previews: some View {
         RootView()
             .environmentObject(spotify)
-//            .environmentObject(sdkController)
+            .environmentObject(sdkController)
 
         
     }

@@ -15,16 +15,15 @@ import SpotifyWebAPI
 final class Spotify: ObservableObject {
     
     private static let clientId: String = {
-        if let clientId = ProcessInfo.processInfo
-                .environment["CLIENT_ID"] {
+        if let clientId = Bundle.main.infoDictionary?["CLIENT_ID"] as? String {
             return clientId
         }
+        
         fatalError("Could not find 'CLIENT_ID' in environment variables")
     }()
     
     private static let clientSecret: String = {
-        if let clientSecret = ProcessInfo.processInfo
-                .environment["CLIENT_SECRET"] {
+        if let clientSecret = Bundle.main.infoDictionary?["CLIENT_SECRET"] as? String {
             return clientSecret
         }
         fatalError("Could not find 'CLIENT_SECRET' in environment variables")
