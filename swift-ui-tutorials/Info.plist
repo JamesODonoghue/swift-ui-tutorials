@@ -19,6 +19,10 @@
 	<array>
 		<string>spotify</string>
 	</array>
+	<key>CLIENT_ID</key>
+	<string>239c098629894eeba35e71c917646d1d</string>
+	<key>CLIENT_SECRET</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
