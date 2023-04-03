@@ -124,16 +124,13 @@ extension SpotifyController: SPTAppRemoteDelegate {
             self.playerState = result as! SPTAppRemotePlayerState
             let playerState = result as! SPTAppRemotePlayerState
             self.fetchAlbumArtForTrack(playerState.track) { (image) -> Void in
-                debugPrint("got image")
                 self.albumArtImageView = image
             }
         }
         self.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
-            debugPrint("player state changed")
             if let error = error {
                 debugPrint(error.localizedDescription)
             }
-
         })
 
     }
@@ -156,7 +153,7 @@ extension SpotifyController: SPTAppRemoteDelegate {
 
 extension SpotifyController: SPTAppRemotePlayerStateDelegate {
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-        debugPrint("player state did change")
+        self.playerState = playerState
     }
 
 }

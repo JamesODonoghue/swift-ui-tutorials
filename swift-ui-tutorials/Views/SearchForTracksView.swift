@@ -25,10 +25,7 @@ struct SearchForTracksView: View {
     var body: some View {
         VStack {
             searchBar
-                .padding([.top, .horizontal])
-            Text("Tap on a track to play it.")
-                .font(.caption)
-                .foregroundColor(.secondary)
+                .padding([.horizontal])
             Spacer()
             if tracks.isEmpty {
                 if isSearching {
@@ -130,6 +127,9 @@ struct SearchView_Previews: PreviewProvider {
     static let spotify = Spotify()
     
     static let tracks: [Track] = [
+        Track(name: "some song", isLocal: true, isExplicit: true),
+        Track(name: "another song", isLocal: true, isExplicit: true)
+
 //        .because, .comeTogether, .odeToViceroy, .illWind,
 //        .faces, .theEnd, .time, .theEnd, .reckoner
     ]

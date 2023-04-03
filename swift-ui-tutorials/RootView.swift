@@ -12,21 +12,58 @@ struct RootView: View {
 
     @State private var cancellables: Set<AnyCancellable> = []
     
+    func onPlay(_ uri: String) {
+        sdkController.appRemote.playerAPI?.play(uri)
+    }
+    
+    func onPause(_ uri: String) {
+        sdkController.appRemote.playerAPI?.pause()
+    }
+    
+    
     var body: some View {
-        NavigationView {
-            ExamplesListView()
-                .navigationBarTitle("Spotify Example App")
-                .navigationBarItems(trailing: logoutButton)
-                .disabled(!spotify.isAuthorized)
+        ZStack {
+            VStack {
+                SearchForTracksView()
+                
+                if (sdkController.playerState != nil && sdkController.playerState?.isPaused != nil) {
+                    BottomBar(title: sdkController.playerState?.track.name ?? "",
+                              trackUri:sdkController.playerState?.track.uri ?? "",
+                              status: sdkController.playerState!.isPaused ? "paused" : "playing",
+                              onPause: onPause,
+                              onPlay: onPlay)
+                }
+               
+//                TabView {
+//                    SearchForTracksView()
+//                        .tabItem {
+//                            Image(systemName: "magnifyingglass")
+//                            Text("Search")
+//                    }
+//                    Text("Friends Screen")
+//                        .tabItem {
+//                            Image(systemName: "person.fill")
+//                            Text("Friends")
+//                    }
+//                    Text("Nearby Screen")
+//                        .tabItem {
+//                            Image(systemName: "mappin.circle.fill")
+//                            Text("Nearby")
+//                    }
+//                }
+            }
+   
+         
         }
+        
         // The login view is presented if `Spotify.isAuthorized` == `false. When
         // the login button is tapped, `Spotify.authorize()` is called. After
         // the login process successfully completes, `Spotify.isAuthorized` will
         // be set to `true` and `LoginView` will be dismissed, allowing the user
         // to interact with the rest of the app.
         .modifier(LoginView())
-        // Presented if an error occurs during the process of authorizing with
-        // the user's Spotify account.
+//        // Presented if an error occurs during the process of authorizing with
+//        // the user's Spotify account.
         .alert(item: $alert) { alert in
             Alert(title: alert.title, message: alert.message)
         }
@@ -43,7 +80,7 @@ struct RootView: View {
      above.
      */
     func handleURL(_ url: URL) {
-        
+                
         // **Always** validate URLs; they offer a potential attack vector into
         // your app.
         guard url.scheme == self.spotify.loginCallbackURL.scheme else {
@@ -54,9 +91,7 @@ struct RootView: View {
             )
             return
         }
-        
-        debugPrint(url.scheme)
-        
+                
 //        if(url.scheme != nil && url.scheme?.contains("access_token") != nil) {
 //            return
 //        }
@@ -156,8 +191,19 @@ struct RootView_Previews: PreviewProvider {
         return spotify
     }()
     
+//    static let sdkContoller: SpotifyController = {
+//        let controller = SpotifyController()
+//        controller.playerState =
+//        return spotify
+//    }()
+    
+
+    
     static var previews: some View {
         RootView()
             .environmentObject(spotify)
+//            .environmentObject(sdkController)
+
+        
     }
 }

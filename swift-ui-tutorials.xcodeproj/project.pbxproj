@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06171A7A29DA8815009974CE /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06171A7929DA8815009974CE /* BottomBarView.swift */; };
 		065458F329D153C100638679 /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06B280B829D0092B00FD5D83 /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		065458F529D153C900638679 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B280B829D0092B00FD5D83 /* SpotifyiOS.xcframework */; };
 		06B280AB29D0042C00FD5D83 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B280AA29D0042C00FD5D83 /* MainApp.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06171A7929DA8815009974CE /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		06B280A729D0042C00FD5D83 /* swift-ui-tutorials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-ui-tutorials.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B280AA29D0042C00FD5D83 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		06B280AC29D0042C00FD5D83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				06B280D229D1427300FD5D83 /* ExamplesListView.swift */,
 				06B280DC29D144EE00FD5D83 /* SearchForTracksView.swift */,
 				06B280DE29D1450F00FD5D83 /* TrackView.swift */,
+				06171A7929DA8815009974CE /* BottomBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				06B280D129D1423C00FD5D83 /* LoginView.swift in Sources */,
 				06B280AD29D0042C00FD5D83 /* ContentView.swift in Sources */,
 				06B280DB29D144A100FD5D83 /* AlertItem.swift in Sources */,
+				06171A7A29DA8815009974CE /* BottomBarView.swift in Sources */,
 				06B280BE29D009FB00FD5D83 /* SpotifyController.swift in Sources */,
 				06B280AB29D0042C00FD5D83 /* MainApp.swift in Sources */,
 				06B280C329D016D400FD5D83 /* Constants.swift in Sources */,

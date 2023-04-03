@@ -2,12 +2,12 @@ import SwiftUI
 import Combine
 import SpotifyWebAPI
 
+
 struct TrackView: View {
     
     @EnvironmentObject var spotify: Spotify
     @EnvironmentObject var sdkController: SpotifyController
 
-    
     @State private var playRequestCancellable: AnyCancellable? = nil
 
     @State private var alert: AlertItem? = nil
@@ -93,17 +93,13 @@ struct TrackView: View {
 
 struct TrackView_Previews: PreviewProvider {
     
-    static let tracks: [Track] = [
-//        .because, .comeTogether, .faces,
-//        .illWind, .odeToViceroy, .reckoner,
-//        .theEnd, .time
-    ]
+    static let tracks: [Track] = [Track(name: "some name", artists: [Artist(name: "bob")], isLocal: true, isExplicit: false)]
 
     static var previews: some View {
         List(tracks, id: \.id) { track in
             TrackView(track: track)
         }
-        .environmentObject(Spotify())
-        .environmentObject(SpotifyController())
+//        .environmentObject(Spotify())
+//        .environmentObject(SpotifyController())
     }
 }
