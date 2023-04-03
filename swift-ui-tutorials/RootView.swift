@@ -91,10 +91,6 @@ struct RootView: View {
             )
             return
         }
-                
-//        if(url.scheme != nil && url.scheme?.contains("access_token") != nil) {
-//            return
-//        }
         
         print("received redirect from Spotify: '\(url)'")
         
@@ -107,6 +103,14 @@ struct RootView: View {
         if(!self.sdkController.isConnected) {
             self.sdkController.connect()
         }
+                
+        if let codeExists: Bool? = URLComponents(string: url.absoluteString)?.queryItems?.first(where: { $0.name == "code" })?.value == nil {
+            return
+        }
+        
+//        if(url.scheme != nil && url.scheme?.contains("code") == nil) {
+//            return
+//        }
         
         // Complete the authorization process by requesting the access and
         // refresh tokens.

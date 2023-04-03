@@ -72,7 +72,7 @@ final class Spotify: ObservableObject {
     @Published var currentUser: SpotifyUser? = nil
     
     /// The keychain to store the authorization information in.
-    let keychain = Keychain(service: "jamesodev.swift-ui-tutorials")
+    let keychain = Keychain(service: "jamesodev.stepclap")
     
     /// An instance of `SpotifyAPI` that you use to make requests to the Spotify
     /// web API.
@@ -88,6 +88,7 @@ final class Spotify: ObservableObject {
     // MARK: - Methods -
     
     init() {
+
         
         // Configure the loggers.
         self.api.apiRequestLogger.logLevel = .trace

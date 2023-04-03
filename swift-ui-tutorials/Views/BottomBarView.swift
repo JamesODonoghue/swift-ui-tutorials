@@ -27,9 +27,7 @@ struct BottomBar: View {
 }
 
 struct BottomBar_Previews: PreviewProvider {
-    static func onPlay(_ uri: String) {
-        debugPrint("clicked")
-    }
+    static func onPlay(_ uri: String) {}
     static var previews: some View {
         BottomBar(title: "Some title", status: "paused", onPause: onPlay, onPlay: onPlay)
     }

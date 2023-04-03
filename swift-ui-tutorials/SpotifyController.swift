@@ -24,7 +24,7 @@ class SpotifyController: NSObject, ObservableObject {
         
         fatalError("Could not find 'CLIENT_ID' in environment variables")
     }()
-    
+        
     let spotifyRedirectURL = URL(string:"swift-tutorial://")!
 
     var accessToken: String? = nil
@@ -65,12 +65,9 @@ class SpotifyController: NSObject, ObservableObject {
 
 
     lazy var appRemote: SPTAppRemote = {
-        debugPrint("app remote configuration")
         let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
         appRemote.connectionParameters.accessToken = self.accessToken
         appRemote.delegate = self
-        debugPrint("app remote configuration completed")
-
         return appRemote
     }()
 
@@ -78,7 +75,6 @@ class SpotifyController: NSObject, ObservableObject {
         let parameters = appRemote.authorizationParameters(from: url)
 
         if let accessToken = parameters?[SPTAppRemoteAccessTokenKey] {
-            debugPrint("setting access token")
             appRemote.connectionParameters.accessToken = accessToken
             self.accessToken = accessToken
         } else if let errorDescription = parameters?[SPTAppRemoteErrorDescriptionKey] {
