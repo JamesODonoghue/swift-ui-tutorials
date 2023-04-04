@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06171A7A29DA8815009974CE /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06171A7929DA8815009974CE /* BottomBarView.swift */; };
+		06171A7D29DB8A34009974CE /* NowPlayingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06171A7C29DB8A34009974CE /* NowPlayingDetailView.swift */; };
 		065458F329D153C100638679 /* SpotifyiOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06B280B829D0092B00FD5D83 /* SpotifyiOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		065458F529D153C900638679 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B280B829D0092B00FD5D83 /* SpotifyiOS.xcframework */; };
 		06B280AB29D0042C00FD5D83 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B280AA29D0042C00FD5D83 /* MainApp.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		06171A7929DA8815009974CE /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		06171A7B29DB7019009974CE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		06171A7C29DB8A34009974CE /* NowPlayingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingDetailView.swift; sourceTree = "<group>"; };
 		06B280A729D0042C00FD5D83 /* swift-ui-tutorials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-ui-tutorials.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B280AA29D0042C00FD5D83 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		06B280AC29D0042C00FD5D83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				06B280DC29D144EE00FD5D83 /* SearchForTracksView.swift */,
 				06B280DE29D1450F00FD5D83 /* TrackView.swift */,
 				06171A7929DA8815009974CE /* BottomBarView.swift */,
+				06171A7C29DB8A34009974CE /* NowPlayingDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				06B280D329D1427300FD5D83 /* ExamplesListView.swift in Sources */,
 				06B280D929D1448500FD5D83 /* ImageNames.swift in Sources */,
 				06B280DF29D1450F00FD5D83 /* TrackView.swift in Sources */,
+				06171A7D29DB8A34009974CE /* NowPlayingDetailView.swift in Sources */,
 				06B280DD29D144EE00FD5D83 /* SearchForTracksView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

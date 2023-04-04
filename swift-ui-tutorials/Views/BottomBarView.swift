@@ -4,31 +4,34 @@ struct BottomBar: View {
     var title = ""
     var trackUri = ""
     var status = ""
-    var onPause: (String) -> Void
-    var onPlay: (String) -> Void
+    var artist = ""
+    var duration: UInt = 0
+    var image: UIImage?
     
     var body: some View {
-        HStack(alignment: .bottom) {
-            Text(title)
-            Spacer()
-            if status == "paused" {
-                Button(action: {onPlay(trackUri)}) {
-                    Image(systemName: "play.fill").font(.system(size: 32))
+        NavigationLink(destination: NowPlayingDetailView(title: title, artist: artist, status: status, duration: duration, image:image)) {
+            HStack(alignment: .bottom) {
+                Text(title)
+                Spacer()
+                if status == "paused" {
+                        Image(systemName: "play.fill").font(.system(size: 32))
                 }
-            }
-            if status == "playing" {
-                Button(action:{ onPause(trackUri)}) {
-                    Image(systemName: "pause.fill").font(.system(size: 32))
+                if status == "playing" {
+                        Image(systemName: "pause.fill").font(.system(size: 32))
+                    
                 }
-            }
-            
-        }.padding(48)
+                
+            }.padding(48)
+        }
     }
 }
 
 struct BottomBar_Previews: PreviewProvider {
     static func onPlay(_ uri: String) {}
     static var previews: some View {
-        BottomBar(title: "Some title", status: "paused", onPause: onPlay, onPlay: onPlay)
+        NavigationView {
+            BottomBar(title: "Water under the bridge", status: "paused", artist: "Adele", duration: 2400)
+        }
+       
     }
 }

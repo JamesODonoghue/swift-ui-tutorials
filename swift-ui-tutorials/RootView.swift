@@ -20,38 +20,58 @@ struct RootView: View {
         sdkController.appRemote.playerAPI?.pause()
     }
     
+    private var trackName: String {
+        return sdkController.playerState?.track.name ?? ""
+    }
+    
+    private var trackUri: String {
+        return sdkController.playerState?.track.uri ?? ""
+    }
+    
+    private var trackStatus: String {
+        if sdkController.playerState!.isPaused {
+            return "playing"
+        }
+        return "paused"
+    }
+    
+    private var duration: UInt {
+        return sdkController.playerState?.track.duration ?? 0
+    }
     
     var body: some View {
         ZStack {
-            VStack {
-                SearchForTracksView()
-                
-                if (sdkController.playerState != nil && sdkController.playerState?.isPaused != nil) {
-                    BottomBar(title: sdkController.playerState?.track.name ?? "",
-                              trackUri:sdkController.playerState?.track.uri ?? "",
-                              status: sdkController.playerState!.isPaused ? "paused" : "playing",
-                              onPause: onPause,
-                              onPlay: onPlay)
+            NavigationView {
+                VStack {
+                    SearchForTracksView()
+                    if (sdkController.playerState != nil && sdkController.playerState?.isPaused != nil) {
+                        BottomBar(title: trackName,
+                                  trackUri:trackUri,
+                                  status: trackStatus,
+                                  duration: duration,
+                                  image:sdkController.albumArtImageView)
+                    }
+                   
+    //                TabView {
+    //                    SearchForTracksView()
+    //                        .tabItem {
+    //                            Image(systemName: "magnifyingglass")
+    //                            Text("Search")
+    //                    }
+    //                    Text("Friends Screen")
+    //                        .tabItem {
+    //                            Image(systemName: "person.fill")
+    //                            Text("Friends")
+    //                    }
+    //                    Text("Nearby Screen")
+    //                        .tabItem {
+    //                            Image(systemName: "mappin.circle.fill")
+    //                            Text("Nearby")
+    //                    }
+    //                }
                 }
-               
-//                TabView {
-//                    SearchForTracksView()
-//                        .tabItem {
-//                            Image(systemName: "magnifyingglass")
-//                            Text("Search")
-//                    }
-//                    Text("Friends Screen")
-//                        .tabItem {
-//                            Image(systemName: "person.fill")
-//                            Text("Friends")
-//                    }
-//                    Text("Nearby Screen")
-//                        .tabItem {
-//                            Image(systemName: "mappin.circle.fill")
-//                            Text("Nearby")
-//                    }
-//                }
             }
+            
    
          
         }

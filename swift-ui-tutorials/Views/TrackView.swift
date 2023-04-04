@@ -66,11 +66,11 @@ struct TrackView: View {
             playbackRequest = PlaybackRequest(trackURI)
         }
         
-        if self.sdkController.isConnected {
-            self.sdkController.appRemote.playerAPI?.play(trackURI)
-        } else {
-            self.sdkController.appRemote.authorizeAndPlayURI(trackURI)
-        }
+//        if self.sdkController.isConnected {
+//            self.sdkController.appRemote.playerAPI?.play(trackURI)
+//        } else {
+//            self.sdkController.appRemote.authorizeAndPlayURI(trackURI)
+//        }
         
         
         // By using a single cancellable rather than a collection of

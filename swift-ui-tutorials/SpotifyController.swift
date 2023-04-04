@@ -37,11 +37,11 @@ class SpotifyController: NSObject, ObservableObject {
 
     override init() {
         super.init()
-//        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
-//            .receive(on: DispatchQueue.main)
-//            .sink { _ in
-//                self.connect()
-//            }
+        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                self.connect()
+            } 
 
         disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
             .receive(on: DispatchQueue.main)
@@ -149,6 +149,7 @@ extension SpotifyController: SPTAppRemoteDelegate {
 
 extension SpotifyController: SPTAppRemotePlayerStateDelegate {
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+        debugPrint(playerState.playbackPosition)
         self.playerState = playerState
     }
 
